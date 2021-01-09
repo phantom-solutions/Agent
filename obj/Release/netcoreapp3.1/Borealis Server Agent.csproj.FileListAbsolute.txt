@@ -1,0 +1,15 @@
+C:\Users\nicole.rappe\source\repos\Agent\bin\Release\netcoreapp3.1\Borealis Server Agent.exe
+C:\Users\nicole.rappe\source\repos\Agent\bin\Release\netcoreapp3.1\Borealis Server Agent.deps.json
+C:\Users\nicole.rappe\source\repos\Agent\bin\Release\netcoreapp3.1\Borealis Server Agent.runtimeconfig.json
+C:\Users\nicole.rappe\source\repos\Agent\bin\Release\netcoreapp3.1\Borealis Server Agent.runtimeconfig.dev.json
+C:\Users\nicole.rappe\source\repos\Agent\bin\Release\netcoreapp3.1\Borealis Server Agent.dll
+C:\Users\nicole.rappe\source\repos\Agent\bin\Release\netcoreapp3.1\Borealis Server Agent.pdb
+C:\Users\nicole.rappe\source\repos\Agent\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\nicole.rappe\source\repos\Agent\obj\Release\netcoreapp3.1\Borealis Server Agent.csprojAssemblyReference.cache
+C:\Users\nicole.rappe\source\repos\Agent\obj\Release\netcoreapp3.1\Borealis Server Agent.AssemblyInfoInputs.cache
+C:\Users\nicole.rappe\source\repos\Agent\obj\Release\netcoreapp3.1\Borealis Server Agent.AssemblyInfo.cs
+C:\Users\nicole.rappe\source\repos\Agent\obj\Release\netcoreapp3.1\Borealis Server Agent.csproj.CoreCompileInputs.cache
+C:\Users\nicole.rappe\source\repos\Agent\obj\Release\netcoreapp3.1\Borealis Server Agent.csproj.CopyComplete
+C:\Users\nicole.rappe\source\repos\Agent\obj\Release\netcoreapp3.1\Borealis Server Agent.dll
+C:\Users\nicole.rappe\source\repos\Agent\obj\Release\netcoreapp3.1\Borealis Server Agent.pdb
+C:\Users\nicole.rappe\source\repos\Agent\obj\Release\netcoreapp3.1\Borealis Server Agent.genruntimeconfig.cache
