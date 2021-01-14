@@ -18,14 +18,14 @@ namespace Borealis_Agent
 
             config.Routes.MapHttpRoute(
                 name: "API",
-                routeTemplate: "{controller}/{action}/{id}",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
                 );
 
             using (HttpSelfHostServer agentAPIserver = new HttpSelfHostServer(config))
             {
                 agentAPIserver.OpenAsync().Wait();
-                Console.Write("Borealis Server Agent - API Controller Initialized and listening on http://localhost:8080");
+                Console.Write("Borealis Server Agent - API Controller Initialized and listening on http://localhost:8080\n");
                 Console.ReadLine();
             }
         }

@@ -9,20 +9,32 @@ using System.Web.Http;
 
 namespace Borealis_Agent
 {
-    public class AgentAPIController : ApiController
+    public class AgentController : ApiController
     {
+        public void API_Console_Update(string action, string details)
+        {
+            Console.WriteLine("{0} | Request: {1} was made by {2}", DateTime.Now, action, details);
+        }
+
         public PayloadClass payloadInstance = new PayloadClass();
 
         public Agent GetAgent()
         {
+            API_Console_Update("GetAgent()", "localhost");
             return new Agent
             {
-                AgentGUID = "d6871a01-ca61-4754-9dcb-0db774fda886",
-                AgentIP = "000.000.0.0",
-                AgentHOSTNAME = "Dummy Hostname"
+                AgentGUID = Guid.NewGuid().ToString(),
+                AgentIP = (Dns.GetHostAddresses(Dns.GetHostName())[1].ToString()),
+                AgentHOSTNAME = Dns.GetHostName()
             };
         }
+        public string Test()
+        {
+            Console.WriteLine("Test");
+            return "Test Command Received";
+        }
 
+        
         public void SetPayload(int id, [FromBody] string data)
         {
             if (id == 1337)
@@ -54,7 +66,7 @@ namespace Borealis_Agent
         {
         }
 
-        // PUT: http://localhost:8080/AgentAPI/Put/5
+        // PUT: http://localhost:8080/Agent/Put/5
         public void Put(int id, [FromBody] string value)
         {
         }
