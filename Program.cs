@@ -13,7 +13,6 @@ namespace Borealis_Agent
     {
         static void Main(string[] args)
         {
-            Console.Write("Borealis Server Agent - Starting API Controller... \n");
             var config = new HttpSelfHostConfiguration("http://localhost:8080");
 
             config.Routes.MapHttpRoute(
@@ -25,7 +24,19 @@ namespace Borealis_Agent
             using (HttpSelfHostServer agentAPIserver = new HttpSelfHostServer(config))
             {
                 agentAPIserver.OpenAsync().Wait();
-                Console.Write("Borealis Server Agent - API Controller Initialized and listening on http://localhost:8080\n");
+                Console.WriteLine("{0} | Borealis Server Agent - API controller started and listening on http://localhost:8080", DateTime.Now);
+                Console.Write("{0} | Please enter the IP address of the Borealis Control Panel (Leave blank to use localhost): ", DateTime.Now);
+                string BorealisServerIP = Console.ReadLine();
+
+                if (BorealisServerIP == "")
+                {
+                    AgentConnection.EstablishConnection("localhost");
+                }
+                else
+                {
+                    AgentConnection.EstablishConnection(BorealisServerIP);
+                }
+                Console.WriteLine("Press any key to terminate the agent. (This is normal)");
                 Console.ReadLine();
             }
         }

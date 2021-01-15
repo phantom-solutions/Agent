@@ -6,9 +6,49 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Formatting;
 
 namespace Borealis_Agent
 {
+    public class AgentConnection
+    {
+        public static void EstablishConnection(string serverAddress)
+        {
+            //Query the server to verify that it exists and is responding to the agent with valid data.
+            string URL = "http://" + serverAddress + ":5000";
+            string urlParameters = "api/server/query";
+            Console.WriteLine("{0} | Querying Control Panel Located at: {1}...", DateTime.Now, URL);
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(URL);
+
+            // Add an Accept header for JSON format.
+            client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/json"));
+
+            // List data response.
+            HttpResponseMessage response = client.GetAsync(urlParameters).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
+            if (response.IsSuccessStatusCode)
+            {
+                // Parse the response body.
+                var queryResponse = response.Content.ReadAsAsync<ControlPanel>().Result;
+                Console.WriteLine("{0} | Successfully Queried Control Panel at {1} at IP: {2}", DateTime.Now, queryResponse.HOSTNAME, queryResponse.IP);
+            }
+            else
+            {
+                Console.WriteLine("{0} | Unable to locate Borealis Control Panel at: {1}", DateTime.Now, URL);
+                //Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
+            }
+
+            //Send authorization data to attempt to associate the agent with the Control Panel
+            Console.Write("{0} | Please provide the authorization password to associate this agent with the control panel: ", DateTime.Now);
+            Console.ReadLine();
+
+            // Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+            client.Dispose();
+        }
+    }
+
     public class AgentController : ApiController
     {
         public void API_Console_Update(string action, string details)
@@ -23,9 +63,9 @@ namespace Borealis_Agent
             API_Console_Update("GetAgent()", "localhost");
             return new Agent
             {
-                AgentGUID = Guid.NewGuid().ToString(),
-                AgentIP = (Dns.GetHostAddresses(Dns.GetHostName())[1].ToString()),
-                AgentHOSTNAME = Dns.GetHostName()
+                GUID = Guid.NewGuid().ToString(),
+                IP = (Dns.GetHostAddresses(Dns.GetHostName())[1].ToString()),
+                HOSTNAME = Dns.GetHostName()
             };
         }
         public string Test()
@@ -78,9 +118,14 @@ namespace Borealis_Agent
     }
     public class Agent
     {
-        public String AgentGUID { get; set; }
-        public String AgentIP { get; set; }
-        public String AgentHOSTNAME { get; set; }
+        public String GUID { get; set; }
+        public String IP { get; set; }
+        public String HOSTNAME { get; set; }
+    }
+    public class ControlPanel
+    {
+        public String IP { get; set; }
+        public String HOSTNAME { get; set; }
     }
 
     public class PayloadClass

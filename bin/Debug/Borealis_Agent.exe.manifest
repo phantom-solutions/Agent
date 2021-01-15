@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Borealis_Agent.exe" size="9168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Borealis_Agent.exe" size="11216">
       <assemblyIdentity name="Borealis_Agent" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ajVu1wGC7nr8ngBl/9fh1deEAZVH1UvFu8zIzgELOM0=</dsig:DigestValue>
+        <dsig:DigestValue>+VnPZvlJmi3dFfQEoQwtFs/G7Ti2MFvl+KRazoXGzWw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
