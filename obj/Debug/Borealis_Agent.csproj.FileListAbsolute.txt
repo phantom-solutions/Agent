@@ -18,3 +18,5 @@ C:\Users\nicole.rappe\source\repos\Agent\bin\Debug\Borealis_Agent.exe.manifest
 C:\Users\nicole.rappe\source\repos\Agent\bin\Debug\Borealis_Agent.application
 C:\Users\nicole.rappe\source\repos\Agent\obj\Debug\Borealis_Agent.exe.manifest
 C:\Users\nicole.rappe\source\repos\Agent\obj\Debug\Borealis_Agent.application
+C:\Users\nicole.rappe\source\repos\Agent\bin\Debug\System.Data.SQLite.dll
+C:\Users\nicole.rappe\source\repos\Agent\bin\Debug\System.Data.SQLite.xml
