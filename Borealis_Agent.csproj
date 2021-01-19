@@ -90,8 +90,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgentAPIController.cs" />
-    <Compile Include="SQLite_Database.cs" />
+    <Compile Include="API_Functions.cs" />
+    <Compile Include="Database_Functions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

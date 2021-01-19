@@ -27,15 +27,19 @@ namespace Borealis_Agent
                 Console.WriteLine("Borealis Agent v0.01");
 
                 //Start the API Controller
-                Console.Write("{0} | Start API Controller on http://localhost:8080: ", DateTime.Now);
+                Console.Write("{0} | [API] Start API Controller on http://localhost:8080: ", DateTime.Now);
                 agentAPIserver.OpenAsync().Wait();
                 Console.Write("Done\n");
 
-                //Initialize the SQLite Test Database and Check its Version
-                Console.Write("{0} | Start SQLite Test Database: ", DateTime.Now);
-                Console.Write("Done (Version {0})\n", SQLite_Database.CheckDBVersion());
-                
-                Console.Write("{0} | Please enter the IP address of the Borealis Control Panel (Leave blank to use localhost): ", DateTime.Now);
+                //Check if database exists on disk, if not, create it
+                Console.Write("{0} | [DATABASE] Checking if Agent SQLite database exists on disk: ", DateTime.Now);
+                Database_Functions.InitializeDatabase();
+
+                //QUERY THE DATABASE (DEBUG)
+                Console.WriteLine("{0} | [DATABASE] Querying SQLite Database...", DateTime.Now);
+                Database_Functions.AgentTestQuery();
+
+                Console.WriteLine("{0} | [API] Please enter the IP address of the Borealis Control Panel (Leave blank to use localhost): ", DateTime.Now);
                 string BorealisServerIP = Console.ReadLine();
 
                 if (BorealisServerIP == "")
